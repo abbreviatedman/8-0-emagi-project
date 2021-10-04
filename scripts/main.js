@@ -2,14 +2,17 @@
 document.querySelector("#search-form")
     .addEventListener("submit", (event) => {
         event.preventDefault();
-        
-        //get all the emojis json
-        //We also want the url for search here to be dynamic so make it string interpolation
+
+        //reset css styles
+        document.querySelector(".result").classList.remove("error")
+        document.querySelector(".result").classList.remove("success")
         
         // our event target is our form. And it's dot search is the thing in the form with the name search.
         let term = event.target.search.value;
         const resultArea = document.querySelector("#search-result")
         
+        //get all the emojis json
+        //We also want the url for search here to be dynamic so make it string interpolation
         fetch(`https://emagi-server-8-0.herokuapp.com/search/${term}`)
         //it gives us an object or response object and that's got a JSON method on it.
         .then((response) => response.json())
@@ -23,6 +26,7 @@ document.querySelector("#search-form")
 
                 //check result
                 // console.log(result)
+                //check errors 
                 if (!result.length) {
                     resultArea.textContent = `${term} cannot be found.`
                     document.querySelector(".result").classList.add('error')
@@ -40,6 +44,3 @@ document.querySelector("#search-form")
             event.target.reset();
 })
 
-function createError () {
-    return resultArea.textContent =  `${term} cannot be found.`
-}
