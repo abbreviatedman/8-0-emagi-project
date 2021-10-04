@@ -7,8 +7,9 @@
     <title>Emagi Project</title>
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
-    <!-- Here's a js file with a helper function that doesn't need a module export. It loads first and it's situated before the main js script. Because if we want to make some helper functions, we should probably not have them in Main. js -->
+    <!-- Here's a js file with a helper function that doesn't need a module export. It loads first and it's situated before the main js script - so as long as it's before main, main will access it. Because if we want to make some helper functions, we should probably not have them in Main. js -->
     <script src="./scripts/get-random.js"></script>
+    <script src="./scripts/search.js"></script>
     <!-- Here's where you'll do all your DOM manipulation - we could have all our event listeners here instead of breaking them up into different js files with helper functions -->
     <script defer src="./scripts/main.js"></script>
   </head>
