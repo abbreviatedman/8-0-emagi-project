@@ -65,20 +65,21 @@ A request to `https://emagi-server-8-0.herokuapp.com/search/{search term}` will 
 
 A request to `https://emagi-server-8-0.herokuapp.com/search/corn` will bring back the following:
 
-````js
+```js
 [
   {
-    "symbol": "🦄",
-    "letter": "u",
-    "name": "unicorn",
-    "category": "animals"
+    symbol: "🦄",
+    letter: "u",
+    name: "unicorn",
+    category: "animals",
   },
   {
-    "symbol": "🍿",
-    "name": "popcorn",
-    "category": "food"
-  }
-]```
+    symbol: "🍿",
+    name: "popcorn",
+    category: "food",
+  },
+];
+```
 
 ### Emojis By Category
 
@@ -89,32 +90,32 @@ A request to `https://emagi-server-8-0.herokuapp.com/categories/weather` will br
 ```js
 [
   {
-    "symbol": "🌧",
-    "name": "rain",
-    "category": "weather"
+    symbol: "🌧",
+    name: "rain",
+    category: "weather",
   },
   {
-    "symbol": "🌨",
-    "name": "snow",
-    "category": "weather"
+    symbol: "🌨",
+    name: "snow",
+    category: "weather",
   },
   {
-    "symbol": "🌩",
-    "name": "thunderstorm",
-    "category": "weather"
+    symbol: "🌩",
+    name: "thunderstorm",
+    category: "weather",
   },
   {
-    "symbol": "🌞",
-    "name": "sun",
-    "category": "weather"
+    symbol: "🌞",
+    name: "sun",
+    category: "weather",
   },
   {
-    "symbol": "🌪",
-    "name": "tornado",
-    "category": "weather"
-  }
-]
-````
+    symbol: "🌪",
+    name: "tornado",
+    category: "weather",
+  },
+];
+```
 
 ## Features
 
