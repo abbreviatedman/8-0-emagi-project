@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="style.css" />
     <!-- Here's a js file with a helper function that doesn't need a module export. It loads first and it's situated before the main js script - so as long as it's before main, main will access it. Because if we want to make some helper functions, we should probably not have them in Main. js -->
     <script src="./scripts/get-random.js"></script>
+    <!-- script for search not needed since grabbing the json emojis from api -->
     <script src="./scripts/search.js"></script>
     <!-- Here's where you'll do all your DOM manipulation - we could have all our event listeners here instead of breaking them up into different js files with helper functions -->
     <script defer src="./scripts/main.js"></script>
@@ -17,14 +18,31 @@
     <header>
       <h1>Emagi Project 🚀</h1>
     </header>
-    <!-- Determine what is our starting point vs what is dynamic to figure out what to put into html and have as little js as possible  -->
+    <!-- Determine what is our starting point vs what is dynamic to figure out what to put into html and have as little js as possible. Then you can add an eventlistener for it -->
     <main>
+      <article id="encode">
+        <h2>Encode Phrase</h2>
+        <p>
+          Encode a phrase using emojis! Each letter in the phrase should be converted to its emoji-form. Other punctuation should remain the same.
+        </p>
+        <form id="encode-form">
+          <label>
+            Text to encode
+            <input type="text" name="encode"/>
+          </label>
+          <button type="submit">Encode!</button>
+        </form>
+        <aside class="result">
+          <h3>Result</h3>
+          <p id="encode-result">No result yet...</p>
+        </aside>
+      </article>
       <article id="search">
         <h2>Search for Emoji</h2>
         <p>
           Search for an emoji with the relevant text. For example, searching for "heart" would return both the heart emoji (i.e. 💜) and the heartbreak emoji (i.e. 💔).
         </p>
-        <form>
+        <form id="search-form">
           <label>
             Text to search
             <!-- double check to see if you need an id for input - only need it when input is not nested inside label - to test, click the label text and the cursor should move to input -->
@@ -35,7 +53,7 @@
         <!-- Add class based on css style for it -->
         <aside class="result">
           <h3>Result</h3>
-          <p>No result yet...</p>
+          <p id="search-result">No result yet...</p>
         </aside>
       </article>
     </main>
