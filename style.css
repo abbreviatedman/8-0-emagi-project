@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Source+Sans+Pro:wght@200;400;900&display=swap");
+
+:root {
+  --color-dark: #191716;
+  --color-light: #e0e2db;
+  --color-red: #f72c25;
+  --color-green: #5b9279;
+  --color-yellow: #e6af2e;
+}
+
+html,
+body {
+  background: var(--color-light);
+  color: var(--color-dark);
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+/* Header */
+header {
+  background: var(--color-yellow);
+  border-bottom: 5px solid var(--color-dark);
+  margin-bottom: 50px;
+}
+
+header h1 {
+  color: var(--color-dark);
+  font-weight: 900;
+  margin: 0;
+  padding: 25px;
+  text-align: center;
+}
+
+/* Main */
+main {
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0 auto;
+  width: 70%;
+}
+
+main article {
+  padding: 25px;
+}
+
+main label,
+main input,
+main button {
+  display: block;
+  margin: 15px 0;
+}
+
+main label {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+main input,
+main select,
+main textarea {
+  border: 1px solid var(--color-dark);
+  padding: 5px 10px;
+}
+
+main textarea {
+  font-family: "Open Sans", sans-serif;
+  padding: 10px;
+  width: 50%;
+}
+
+main button {
+  background: var(--color-dark);
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+main button:hover {
+  background: var(--color-green);
+  transition: all 0.2s linear;
+}
+
+main aside {
+  background: white;
+  border-radius: 5px;
+  margin-top: 25px;
+  padding: 25px;
+}
+
+main aside.success {
+  background: var(--color-green);
+  color: white;
+}
+
+main aside.error {
+  background: var(--color-red);
+  color: white;
+}
+
+main aside h3,
+main aside p {
+  margin: 0 0 10px;
+}
+
+/* Footer */
+footer {
+  background: var(--color-dark);
+  color: white;
+  margin-top: 50px;
+  padding: 25px;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+footer a,
+footer a:hover {
+  color: var(--color-yellow);
+}
+
+/* Media queries */
+
+@media screen and (max-width: 1050px) {
+  main {
+    gap: 0;
+    grid-template-columns: 1fr;
+  }
+
+  main article {
+    padding: 5px;
+  }
+}
