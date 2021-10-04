@@ -4,12 +4,12 @@ document.querySelector("#search-form")
         event.preventDefault();
 
         //reset css styles
-        document.querySelector(".result").classList.remove("error")
-        document.querySelector(".result").classList.remove("success")
+        event.target.parentNode.querySelector(".result").classList.remove("error");
+        event.target.parentNode.querySelector(".result").classList.remove("success");
         
         // our event target is our form. And it's dot search is the thing in the form with the name search.
         let term = event.target.search.value;
-        const resultArea = document.querySelector("#search-result")
+        const resultArea = document.querySelector("#search-result");
         
         //get all the emojis json
         //We also want the url for search here to be dynamic so make it string interpolation
@@ -26,21 +26,22 @@ document.querySelector("#search-form")
 
                 //check result
                 // console.log(result)
+
                 //check errors 
                 if (!result.length) {
-                    resultArea.textContent = `${term} cannot be found.`
-                    document.querySelector(".result").classList.add('error')
+                    resultArea.textContent = `${term} cannot be found.`;
+                    event.target.parentNode.querySelector(".result").classList.add('error');
                 } else {
                     resultArea.textContent = result;
                     //add the class for the aside section based on the css class for when it's a success result
-                    document.querySelector(".result").classList.add('success')
-                }
+                    event.target.parentNode.querySelector(".result").classList.add('success');
+                };
             })
             .catch(() => {
-                resultArea.textContent = `${term} cannot be found.`
-                document.querySelector(".result").classList.add('error')
-            })
+                resultArea.textContent = `${term} cannot be found.`;
+                event.target.parentNode.querySelector(".result").classList.add('error');
+            });
 
             event.target.reset();
-})
+});
 
