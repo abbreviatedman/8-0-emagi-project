@@ -17,7 +17,28 @@
     <header>
       <h1>Emagi Project 🚀</h1>
     </header>
-    <main></main>
+    <!-- Determine what is our starting point vs what is dynamic to figure out what to put into html and have as little js as possible  -->
+    <main>
+      <article id="search">
+        <h2>Search for Emoji</h2>
+        <p>
+          Search for an emoji with the relevant text. For example, searching for "heart" would return both the heart emoji (i.e. 💜) and the heartbreak emoji (i.e. 💔).
+        </p>
+        <form>
+          <label>
+            Text to search
+            <!-- double check to see if you need an id for input - only need it when input is not nested inside label - to test, click the label text and the cursor should move to input -->
+            <input type="text" name="search"/>
+          </label>
+          <button type="submit">Search!</button>
+        </form>
+        <!-- Add class based on css style for it -->
+        <aside class="result">
+          <h3>Result</h3>
+          <p>No result yet...</p>
+        </aside>
+      </article>
+    </main>
     <footer>
       <p>
         Created by SalRey -
