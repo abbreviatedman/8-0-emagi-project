@@ -1,4 +1,4 @@
-// Your `getCategory` function should go below:
+// Your `getCategory` function should go here.
 
 // DON'T TOUCH BELOW!
 // If you haven't made the function yet, this check makes sure other tests can still run.
