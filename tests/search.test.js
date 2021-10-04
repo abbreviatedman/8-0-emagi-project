@@ -9,7 +9,7 @@ describe("search", () => {
         symbol: "🍄",
         letter: "m",
         name: "mushroom",
-        categories: [],
+        category: '',
       },
     ];
     const searchTerm2 = "alien";
@@ -18,7 +18,7 @@ describe("search", () => {
         symbol: "👽",
         letter: "a",
         name: "alien",
-        categories: ["face"],
+        category: "faces",
       },
     ];
     const searchTerm3 = "unicorn";
@@ -27,7 +27,7 @@ describe("search", () => {
         symbol: "🦄",
         letter: "u",
         name: "unicorn",
-        categories: ["animal"],
+        category: "animals",
       },
     ];
 
@@ -43,7 +43,7 @@ describe("search", () => {
       {
         symbol: "🍕",
         name: "pizza",
-        categories: ["food"],
+        category: "food",
       },
     ];
 
@@ -53,7 +53,7 @@ describe("search", () => {
       {
         symbol: "🌯",
         name: "burrito",
-        categories: ["food"],
+        category: "food",
       },
     ];
 
@@ -63,7 +63,7 @@ describe("search", () => {
       {
         symbol: "🌩",
         name: "thunderstorm",
-        categories: ["weather"],
+        category: "weather",
       },
     ];
 
@@ -82,12 +82,12 @@ describe("search", () => {
         symbol: "💜",
         letter: "h",
         name: "heart",
-        categories: [],
+        category: '',
       },
       {
         symbol: "💔",
         name: "heartbreak",
-        categories: [],
+        category: '',
       },
     ];
     const searchTerm2 = "corn";
@@ -96,12 +96,12 @@ describe("search", () => {
         symbol: "🦄",
         letter: "u",
         name: "unicorn",
-        categories: ["animal"],
+        category: "animal",
       },
       {
         symbol: "🍿",
         name: "popcorn",
-        categories: ["food"],
+        category: "food",
       },
     ];
     const searchTerm3 = "bo";
@@ -110,27 +110,27 @@ describe("search", () => {
         symbol: "🤖",
         letter: "r",
         name: "robot",
-        categories: ["face"],
+        category: "faces",
       },
       {
         symbol: "🍼",
         name: "bottle",
-        categories: ["food", "drink"],
+        category: "drinks",
       },
       {
         symbol: "⛵",
         name: "boat",
-        categories: ["vehicle"],
+        category: "vehicles",
       },
       {
         symbol: "📖",
         name: "book",
-        categories: ["entertainment"],
+        category: "entertainment",
       },
       {
         symbol: "📓",
         name: "notebook",
-        categories: [],
+        category: '',
       },
     ];
 
@@ -149,7 +149,7 @@ describe("search", () => {
         symbol: "🤖",
         letter: "r",
         name: "robot",
-        categories: ["face"],
+        category: "faces",
       },
     ];
 
@@ -157,7 +157,7 @@ describe("search", () => {
       {
         symbol: "🍿",
         name: "popcorn",
-        categories: ["food"],
+        category: "food",
       },
     ];
 
@@ -165,7 +165,7 @@ describe("search", () => {
       {
         symbol: "💔",
         name: "heartbreak",
-        categories: [],
+        category: '',
       },
     ];
 
