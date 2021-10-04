@@ -120,7 +120,7 @@ describe("search", () => {
       {
         symbol: "⛵",
         name: "boat",
-        category: "vehicle",
+        category: "vehicles",
       },
       {
         symbol: "📖",
