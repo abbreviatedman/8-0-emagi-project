@@ -1,9 +1,10 @@
+//-----------
 //Query form and Add eventlistener for search after updating html 
 document.querySelector("#search-form")
     .addEventListener("submit", (event) => {
         event.preventDefault();
 
-        //reset css styles
+        //reset css styles - use event.target to select specific result related to section
         event.target.parentNode.querySelector(".result").classList.remove("error");
         event.target.parentNode.querySelector(".result").classList.remove("success");
         
@@ -41,6 +42,43 @@ document.querySelector("#search-form")
                 resultArea.textContent = `${term} cannot be found.`;
                 event.target.parentNode.querySelector(".result").classList.add('error');
             });
+
+            event.target.reset();
+});
+
+//----------Random by Category----------
+//Query form and Add eventlistener 
+document.querySelector("#random-form")
+    .addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        //reset css styles
+        event.target.parentNode.querySelector(".result").classList.remove("success");
+        event.target.parentNode.querySelector(".result").classList.remove("error");
+        
+        // target the category selection
+        let category = event.target.category.value;
+        const resultArea = document.querySelector("#random-result");
+
+        if (category === "all") {
+            resultArea.textContent = "Please select a specific category"
+            event.target.parentNode.querySelector(".result").classList.add('error');
+        } else {
+        //get all the emojis json
+        //Specific url to be dynamic
+        fetch(`https://emagi-server-8-0.herokuapp.com/categories/${category}`)
+        .then((response) => response.json())
+        .then((emojis) => { 
+                const result = getRandom(emojis.map((emojis) => emojis.symbol));
+
+                //check result
+                // console.log(result)
+            
+                resultArea.textContent = result;
+                event.target.parentNode.querySelector(".result").classList.add('success');
+            })
+            .catch();
+        }
 
             event.target.reset();
 });
