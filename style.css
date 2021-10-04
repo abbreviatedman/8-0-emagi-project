@@ -57,7 +57,8 @@ main article {
 main label,
 main input,
 main button,
-main textarea {
+main textarea,
+main select {
   display: block;
   margin: 15px 0;
 }
