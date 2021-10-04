@@ -221,6 +221,11 @@ Commas and spaces are kept intact.
 
 ## Tips
 
+- When connecting files to each other, pay careful attention to their paths relative to each other.
 - It is recommended that you handle each feature in the order above.
 - It is _highly_ recommended that you handle each feature end-to-end in order. That is, you should complete a feature entirely before starting another. Add any logic required, add the JS file(s) to the HTML, add the HTML you'll need, add event listeners, etc., until you have a working feature.
 - The order of steps is as follows:
+  - Solve the tests for a particular logic function that can help you, OR use an existing API end-point instead if it can solve the problem. For example, the Search function can be solved with a the `search.js` file or with the `/search/{seach term}` end-point detailed above.
+  - If you used a logic function in another file, add it to the head of the HTML file _before_ `main.js` (so that the JS there will be loaded first and `main.js` can use it.)
+  - Add the HTML you think you will need for the user to interact with.
+  - Add an event listener to `main.js` to respond to a `submit` event on the form you added in the previous step, getting the emojis from the API and putting them on the DOM. Make sure to follow all the features listed in the Featured List for the feature you're adding.
