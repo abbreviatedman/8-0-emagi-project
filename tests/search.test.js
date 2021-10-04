@@ -96,7 +96,7 @@ describe("search", () => {
         symbol: "🦄",
         letter: "u",
         name: "unicorn",
-        category: "animal",
+        category: "animals",
       },
       {
         symbol: "🍿",
