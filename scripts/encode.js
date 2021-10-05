@@ -1,5 +1,17 @@
 // You encode function should go here.
 
+const encode = (text, emojis) => {
+  const characters = text.split("")
+  const newCharacters = characters.map((character) => {
+    const found = emojis.find((emoji) => emoji.letter === character.toLowerCase())
+    if (found) {
+      character = found.symbol
+    }
+    return character
+  })
+  return newCharacters.join("")
+}
+
 // DON'T TOUCH BELOW!
 // If you haven't made the function yet, this check makes sure other tests can still run.
 if (typeof encode === "undefined") {

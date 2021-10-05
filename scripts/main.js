@@ -10,7 +10,7 @@ document.querySelector("#search-form")
         event.target.parentNode.querySelector(".result").classList.remove("success");
         
         // our event target is our form. And it's dot search is the thing in the form with the name search.
-        let term = event.target.search.value;
+        const term = event.target.search.value;
         const resultArea = document.querySelector("#search-result");
         
         //get all the emojis json
@@ -60,7 +60,7 @@ document.querySelector("#random-form")
         event.target.parentNode.querySelector(".result").classList.remove("error");
         
         // target the category selection
-        let category = event.target.category.value;
+        const category = event.target.category.value;
         const resultArea = document.querySelector("#random-result");
 
         if (category === "all") {
@@ -100,7 +100,7 @@ document.querySelector("#replace-form")
         event.target.parentNode.querySelector(".result").classList.remove("error");
         
         // target the text input area
-        let text = event.target.replace.value;
+        const text = event.target.replace.value;
         const resultArea = document.querySelector("#replace-result");
 
         if (!text) {
@@ -112,14 +112,55 @@ document.querySelector("#replace-form")
         fetch(`https://emagi-server-8-0.herokuapp.com/emojis`)
         .then((response) => response.json())
         .then((emojis) => { 
-            if (text === replace(text, emojis)) {
+            if (text === replaceText(text, emojis)) {
                 resultArea.textContent = "No text has been replaced with an emoji";
                 event.target.parentNode.querySelector(".result").classList.add("error");
               } else {
-                  const result = replace(text, emojis)
-  
+                  const result = replaceText(text, emojis)
+
                   //check result
-                  // console.log(result)
+                  // console.log(result)     
+              
+                  resultArea.textContent = result;
+                  event.target.parentNode.querySelector(".result").classList.add('success');
+              }
+            })
+            .catch();
+        }
+            event.target.reset();
+});
+
+//----------Encode Text----------
+//Query form and Add eventlistener 
+document.querySelector("#encode-form")
+    .addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        //reset css styles
+        event.target.parentNode.querySelector(".result").classList.remove("success");
+        event.target.parentNode.querySelector(".result").classList.remove("error");
+        
+        // target the text input area
+        const text = event.target.encode.value;
+        const resultArea = document.querySelector("#encode-result");
+
+        if (!text) {
+            resultArea.textContent = "Please enter text to encode"
+            event.target.parentNode.querySelector(".result").classList.add('error');
+        } else {
+        //get all the emojis json
+        //Specific url to be dynamic
+        fetch(`https://emagi-server-8-0.herokuapp.com/emojis`)
+        .then((response) => response.json())
+        .then((emojis) => { 
+            if (text === encode(text, emojis)) {
+                resultArea.textContent = "No text has been encoded using emojis";
+                event.target.parentNode.querySelector(".result").classList.add("error");
+              } else {
+                  const result = encode(text, emojis)
+
+                  //check result
+                  // console.log(result)     
               
                   resultArea.textContent = result;
                   event.target.parentNode.querySelector(".result").classList.add('success');
