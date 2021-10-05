@@ -1,6 +1,6 @@
 // Your replace function should go here.
 
-const replace = (text, emojis) => {
+const replaceText = (text, emojis) => {
   const listText = text.split(" ")
   
   const newList = listText.map((word) => {
@@ -30,5 +30,5 @@ if (typeof replace === "undefined") {
 // If you try to use `module.exports` in the browser, you'll get a logged error.
 // It won't break anything, but it's easy to confuse it with a serious error.
 if (typeof module !== "undefined") {
-  module.exports = replace;
+  module.exports = replaceText;
 }
