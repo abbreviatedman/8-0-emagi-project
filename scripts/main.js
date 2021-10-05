@@ -105,11 +105,8 @@ document.querySelector('#replace form').addEventListener('submit', (event) => {
     .then((emojiMap) => {
       //iterate through object
       for (const prop in emojiMap) {
-        //if string includes objects name
-        if (phrase.includes(prop)) {
-          const regex = new RegExp(prop, 'ig');
-          phrase = phrase.replace(regex, emojiMap[prop]);
-        }
+        const regex = new RegExp(prop, 'ig');
+        phrase = phrase.replace(regex, emojiMap[prop]);
       }
       resultArea.textContent = phrase;
 
