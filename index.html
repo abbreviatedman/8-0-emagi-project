@@ -69,6 +69,7 @@
         <form>
           <label for="rand_cat_sel">Category</label>
           <select name="rand_cat_sel" id="rand_cat_sel">
+            <option value="all">All Categories</option>
             <option value="faces">Faces</option>
             <option value="food">Food</option>
             <option value="animals">Animals</option>
@@ -82,6 +83,42 @@
           <button type="submit">Search</button>
         </form>
         <aside class="random_category">
+          <h3>Result</h3>
+          <p>No result yet...</p>
+        </aside>
+      </article>
+
+      <article id="replace">
+        <h2>Replace with Emojis</h2>
+        <form name="replace_form">
+          <label for="replace-text">Text to replace</label>
+          <input
+            type="text"
+            id="replace-text"
+            name="replace"
+            placeholder="Word or phrase to modify"
+          />
+          <button type="submit">Replace</button>
+        </form>
+        <aside class="result">
+          <h3>Result</h3>
+          <p>No result yet...</p>
+        </aside>
+      </article>
+
+      <article id="encode">
+        <h2>encode with Emojis</h2>
+        <form name="encode_form">
+          <label for="encode-text">Text to Encode</label>
+          <input
+            type="textarea"
+            id="encode-text"
+            name="encode"
+            placeholder="Word or phrase to modify"
+          />
+          <button type="submit">Encode</button>
+        </form>
+        <aside class="result">
           <h3>Result</h3>
           <p>No result yet...</p>
         </aside>

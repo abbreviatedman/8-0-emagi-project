@@ -6,6 +6,7 @@ document.querySelector("#search form").addEventListener("submit", (event) => {
     document.querySelector("#search aside p").textContent =
       "Error: no text entered";
     document.querySelector("#search aside").classList.add("error");
+    document.querySelector("#search aside").classList.remove("success");
   }
   fetch(`https://emagi-server-8-0.herokuapp.com/search/${term}`)
     .then((response) =>
@@ -43,7 +44,13 @@ document
   .addEventListener("submit", (event) => {
     event.preventDefault();
     const category = event.target.rand_cat_sel.value;
-    fetch(`https://emagi-server-8-0.herokuapp.com/categories/${category}`)
+    let url = "";
+    if (category === "all") {
+      url = `https://emagi-server-8-0.herokuapp.com/emojis`;
+    } else {
+      url = `https://emagi-server-8-0.herokuapp.com/categories/${category}`;
+    }
+    fetch(url)
       .then((response) => {
         response.json().then((emojis) => {
           const result = emojis.map((emoji) => emoji.symbol);
@@ -56,3 +63,94 @@ document
       })
       .catch(console.log);
   });
+
+//Replace
+document.querySelector("#replace form").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const text = event.target.replace.value;
+  if (!text) {
+    document.querySelector("#replace aside p").textContent =
+      "Error: no text entered";
+    document.querySelector("#replace aside").classList.add("error");
+    document.querySelector("#replace aside").classList.remove("success");
+  } else {
+    fetch(`https://emagi-server-8-0.herokuapp.com/emojis`)
+      .then((response) =>
+        response.json().then((emojis) => {
+          const result = [];
+          const words = text.split(" ");
+          words.forEach((word) => {
+            //accounting for punctuation at the end of a word
+            const punctuation = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+            let storedPunc = "";
+            word = word
+              .split("")
+              .filter((letter) => {
+                if (punctuation.includes(letter)) {
+                  storedPunc = letter;
+                  return false;
+                } else {
+                  return true;
+                }
+              })
+              .join("");
+            //still need to account for suffixes probably need a word search directory, but sounds kind of inefficient
+            document.querySelector("#search aside").classList.remove("success");
+            result.push(replace(word, emojis) + storedPunc);
+          });
+
+          const resultArea = document.querySelector("#replace aside p");
+          resultArea.textContent = result.join(" ");
+          if (resultArea.textContent === text) {
+            resultArea.textContent += `\n\n**No text was moddified**`;
+          }
+          document.querySelector("#replace aside").classList.add("success");
+          document.querySelector("#replace aside").classList.remove("error");
+          document.search_form.reset();
+        })
+      )
+      .catch(console.log);
+  }
+});
+
+//Encode
+
+// fetch(`https://emagi-server-8-0.herokuapp.com/emojis`)
+//   .then((response) => {
+//     response.json().then((emojis) => {
+//   const emojiList = emojis.filter((emoji) =>
+// "qwertyuiopasdfghjklzxcvbnm".includes(emoji.letter)
+//       );
+//       console.log(emojiList);
+//     });
+//   })
+//   .catch(console.log);
+//
+document.querySelector("#encode form").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const text = event.target.encode.value;
+  if (!text) {
+    document.querySelector("#encode aside p").textContent =
+      "Error: no text entered";
+    document.querySelector("#encode aside").classList.add("error");
+    document.querySelector("#encode aside").classList.remove("success");
+  } else {
+    fetch(`https://emagi-server-8-0.herokuapp.com/emojis`)
+      .then((response) =>
+        response.json().then((emojis) => {
+          const emojiList = emojis.filter((emoji) =>
+            "qwertyuiopasdfghjklzxcvbnm".includes(emoji.letter)
+          );
+
+          const resultArea = document.querySelector("#encode aside p");
+          //seems to auto format spaces to be a single space
+          resultArea.textContent = encode(text, emojiList);
+          document.querySelector("#encode aside").classList.add("success");
+          //allows the box to change back from error
+          document.querySelector("#encode aside").classList.remove("error");
+          document.encode_form.reset();
+        })
+      )
+      .catch(console.log);
+  }
+});
