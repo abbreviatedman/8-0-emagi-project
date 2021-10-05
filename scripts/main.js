@@ -1,5 +1,5 @@
 
-//-----------
+//----------Search for Emoji----------
 //Query form and Add eventlistener for search after updating html 
 document.querySelector("#search-form")
     .addEventListener("submit", (event) => {
@@ -69,12 +69,13 @@ document.querySelector("#random-form")
         } else {
         //get all the emojis json
         //Specific url to be dynamic
+        // fetch(`https://emagi-server-8-0.herokuapp.com/categories/${category}`)
+
         fetch(`https://emagi-server-8-0.herokuapp.com/emojis`)
         .then((response) => response.json())
         .then((emojis) => { 
                 // const result = getRandom(emojis.map((emojis) => emojis.symbol));
                 const result = getRandom(getCategory(category, emojis).map((emoji) => emoji.symbol));
-
 
                 //check result
                 // console.log(result)
@@ -88,3 +89,38 @@ document.querySelector("#random-form")
             event.target.reset();
 });
 
+//----------Replace Text----------
+//Query form and Add eventlistener 
+document.querySelector("#replace-form")
+    .addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        //reset css styles
+        event.target.parentNode.querySelector(".result").classList.remove("success");
+        event.target.parentNode.querySelector(".result").classList.remove("error");
+        
+        // target the text input area
+        let text = event.target.replace.value;
+        const resultArea = document.querySelector("#replace-result");
+
+        if (!text) {
+            resultArea.textContent = "Please enter text to replace"
+            event.target.parentNode.querySelector(".result").classList.add('error');
+        } else {
+        //get all the emojis json
+        //Specific url to be dynamic
+        fetch(`https://emagi-server-8-0.herokuapp.com/emojis`)
+        .then((response) => response.json())
+        .then((emojis) => { 
+                const result = replace(text, emojis)
+
+                //check result
+                // console.log(result)
+            
+                resultArea.textContent = result;
+                event.target.parentNode.querySelector(".result").classList.add('success');
+            })
+            .catch();
+        }
+            event.target.reset();
+});

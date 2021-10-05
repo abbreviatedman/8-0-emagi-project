@@ -1,5 +1,18 @@
 // Your replace function should go here.
 
+const replace = (text, emojis) => {
+  const listText = text.split(" ")
+  
+  const newList = listText.map((word) => {
+    const rightEmoji = emojis.filter((emoji) => emoji.name === word.toLowerCase())
+    if (rightEmoji.length) {
+      word = rightEmoji[0].symbol
+    }
+    return word
+  })
+  return newList.join(" ")
+}
+
 // DON'T TOUCH BELOW!
 // If you haven't made the function yet, this check makes sure other tests can still run.
 if (typeof replace === "undefined") {
