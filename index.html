@@ -7,6 +7,7 @@
     <title>Emagi Project</title>
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
+    <script src="./scripts/search.js"></script>
     <script src="./scripts/get-random.js"></script>
     <script defer src="./scripts/main.js"></script>
   </head>
@@ -14,10 +15,27 @@
     <header>
       <h1>Emagi Project 🚀</h1>
     </header>
-    <main></main>
+    <main>
+      <article id="search">
+        <h2>Search For Emoji</h2>
+        <p>
+          Search for an emoji with the relevant text. ex "heart" should return
+          purple heart and broken heart
+        </p>
+        <form>
+          <label for="search-text">Text to Search</label>
+          <input type="text" id="search-text" name="search" />
+          <button type="submit">Search</button>
+        </form>
+        <aside class="result">
+          <h3>Result</h3>
+          <p>No result yet...</p>
+        </aside>
+      </article>
+    </main>
     <footer>
       <p>
-        Created by YOUR-NAME.
+        Created by BennyZ.
         <a href="https://joinpursuit.org">Join Pursuit.</a>
       </p>
     </footer>
