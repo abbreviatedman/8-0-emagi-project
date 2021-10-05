@@ -112,15 +112,21 @@ document.querySelector("#replace-form")
         fetch(`https://emagi-server-8-0.herokuapp.com/emojis`)
         .then((response) => response.json())
         .then((emojis) => { 
-                const result = replace(text, emojis)
-
-                //check result
-                // console.log(result)
-            
-                resultArea.textContent = result;
-                event.target.parentNode.querySelector(".result").classList.add('success');
+            if (text === replace(text, emojis)) {
+                resultArea.textContent = "No text has been replaced with an emoji";
+                event.target.parentNode.querySelector(".result").classList.add("error");
+              } else {
+                  const result = replace(text, emojis)
+  
+                  //check result
+                  // console.log(result)
+              
+                  resultArea.textContent = result;
+                  event.target.parentNode.querySelector(".result").classList.add('success');
+              }
             })
             .catch();
         }
             event.target.reset();
 });
+
