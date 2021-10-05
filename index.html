@@ -25,9 +25,14 @@
           Search for an emoji with the relevant text. ex "heart" should return
           purple heart and broken heart
         </p>
-        <form>
+        <form name="search_form">
           <label for="search-text">Text to Search</label>
-          <input type="text" id="search-text" name="search" />
+          <input
+            type="text"
+            id="search-text"
+            name="search"
+            placeholder="Search word or letters"
+          />
           <button type="submit">Search</button>
         </form>
         <aside class="result">
@@ -41,19 +46,42 @@
         <form>
           <label for="category_select">Category</label>
           <select name="category_select" id="category_select">
-            <option value="faces">faces</option>
-            <option value="food">food</option>
-            <option value="animals">animals</option>
-            <option value="devices">devices</option>
-            <option value="drinks">drinks</option>
-            <option value="vehicles">vehicles</option>
-            <option value="weather">weather</option>
-            <option value="holidays">holidays</option>
-            <option value="entertainment">entertainment</option>
+            <option value="faces">Faces</option>
+            <option value="food">Food</option>
+            <option value="animals">Animals</option>
+            <option value="devices">Devices</option>
+            <option value="drinks">Drinks</option>
+            <option value="vehicles">Vehicles</option>
+            <option value="weather">Weather</option>
+            <option value="holidays">Holidays</option>
+            <option value="entertainment">Entertainment</option>
           </select>
           <button type="submit">Search</button>
         </form>
         <aside class="resultCategory">
+          <h3>Result</h3>
+          <p>No result yet...</p>
+        </aside>
+      </article>
+
+      <article id="random_category">
+        <h2>Random Emoji by Category</h2>
+        <form>
+          <label for="rand_cat_sel">Category</label>
+          <select name="rand_cat_sel" id="rand_cat_sel">
+            <option value="faces">Faces</option>
+            <option value="food">Food</option>
+            <option value="animals">Animals</option>
+            <option value="devices">Devices</option>
+            <option value="drinks">Drinks</option>
+            <option value="vehicles">Vehicles</option>
+            <option value="weather">Weather</option>
+            <option value="holidays">Holidays</option>
+            <option value="entertainment">Entertainment</option>
+          </select>
+          <button type="submit">Search</button>
+        </form>
+        <aside class="random_category">
           <h3>Result</h3>
           <p>No result yet...</p>
         </aside>
