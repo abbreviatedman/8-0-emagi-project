@@ -4,9 +4,12 @@ const replace = (text, emojis) => {
   const listText = text.split(" ")
   
   const newList = listText.map((word) => {
-    const rightEmoji = emojis.filter((emoji) => emoji.name === word.toLowerCase())
-    if (rightEmoji.length) {
-      word = rightEmoji[0].symbol
+    // const rightEmoji = emojis.filter((emoji) => emoji.name === word.toLowerCase())
+    // if (rightEmoji.length) {
+    //   word = rightEmoji[0].symbol
+    const found = emojis.find((emoji) => emoji.name === word.toLowerCase());
+    if (found) {
+      word = found.symbol;
     }
     return word
   })
