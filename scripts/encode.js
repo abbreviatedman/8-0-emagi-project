@@ -1,5 +1,5 @@
 // You encode function should go here.
-const encodeWord = (word, emojis) => {
+const encode = (word, emojis) => {
   let result = [];
   for (let i = 0; i < word.length; i++) {
     const finder = emojis.find(
@@ -24,5 +24,5 @@ if (typeof encode === "undefined") {
 // If you try to use `module.exports` in the browser, you'll get a logged error.
 // It won't break anything, but it's easy to confuse it with a serious error.
 if (typeof module !== "undefined") {
-  module.exports = encodeWord;
+  module.exports = encode;
 }
