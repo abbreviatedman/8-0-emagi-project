@@ -1,3 +1,4 @@
+
 //-----------
 //Query form and Add eventlistener for search after updating html 
 document.querySelector("#search-form")
@@ -14,6 +15,8 @@ document.querySelector("#search-form")
         
         //get all the emojis json
         //We also want the url for search here to be dynamic so make it string interpolation
+        // fetch(`https://emagi-server-8-0.herokuapp.com/emojis`)
+
         fetch(`https://emagi-server-8-0.herokuapp.com/search/${term}`)
         //it gives us an object or response object and that's got a JSON method on it.
         .then((response) => response.json())
@@ -66,10 +69,12 @@ document.querySelector("#random-form")
         } else {
         //get all the emojis json
         //Specific url to be dynamic
-        fetch(`https://emagi-server-8-0.herokuapp.com/categories/${category}`)
+        fetch(`https://emagi-server-8-0.herokuapp.com/emojis`)
         .then((response) => response.json())
         .then((emojis) => { 
-                const result = getRandom(emojis.map((emojis) => emojis.symbol));
+                // const result = getRandom(emojis.map((emojis) => emojis.symbol));
+                const result = getRandom(getCategory(category, emojis).map((emoji) => emoji.symbol));
+
 
                 //check result
                 // console.log(result)
