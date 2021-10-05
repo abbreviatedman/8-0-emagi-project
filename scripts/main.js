@@ -13,3 +13,17 @@ document.querySelector("#search form").addEventListener("submit", (event) => {
     )
     .catch(console.log);
 });
+
+document.querySelector("#category form").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const category = event.target.category_select.value;
+  fetch(`https://emagi-server-8-0.herokuapp.com/categories/${category}`)
+    .then((response) => {
+      response.json().then((emojis) => {
+        const result = emojis.map((emoji) => emoji.symbol).join("");
+        document.querySelector("#category aside p").textContent = result;
+        document.querySelector("#category aside").classList.add("success");
+      });
+    })
+    .catch(console.log);
+});
