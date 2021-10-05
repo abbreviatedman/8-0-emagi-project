@@ -7,9 +7,10 @@ const replace = (text, emojis) => {
     // const rightEmoji = emojis.filter((emoji) => emoji.name === word.toLowerCase())
     // if (rightEmoji.length) {
     //   word = rightEmoji[0].symbol
-    const found = emojis.find((emoji) => emoji.name === word.toLowerCase());
+    // const found = emojis.find((emoji) => emoji.name === word.toLowerCase());
+    const found = emojis.find((emoji) => word.toLowerCase().includes(emoji.name));
     if (found) {
-      word = found.symbol;
+      word = word.toLowerCase().replace(found.name, found.symbol);
     }
     return word
   })
