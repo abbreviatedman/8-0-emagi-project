@@ -1,33 +1,33 @@
-const search = require("../scripts/search");
-const emojis = require("./emojis");
+const search = require('../scripts/search');
+const emojis = require('./emojis');
 
-describe("search", () => {
+describe('search', () => {
   it(`returns an array containing the emoji whose name matches the given word`, () => {
-    const searchTerm1 = "mushroom";
+    const searchTerm1 = 'mushroom';
     const searchResult1 = [
       {
-        symbol: "🍄",
-        letter: "m",
-        name: "mushroom",
-        categories: [],
+        symbol: '🍄',
+        letter: 'm',
+        name: 'mushroom',
+        category: '',
       },
     ];
-    const searchTerm2 = "alien";
+    const searchTerm2 = 'alien';
     const searchResult2 = [
       {
-        symbol: "👽",
-        letter: "a",
-        name: "alien",
-        categories: ["face"],
+        symbol: '👽',
+        letter: 'a',
+        name: 'alien',
+        category: 'faces',
       },
     ];
-    const searchTerm3 = "unicorn";
+    const searchTerm3 = 'unicorn';
     const searchResult3 = [
       {
-        symbol: "🦄",
-        letter: "u",
-        name: "unicorn",
-        categories: ["animal"],
+        symbol: '🦄',
+        letter: 'u',
+        name: 'unicorn',
+        category: 'animals',
       },
     ];
 
@@ -37,33 +37,33 @@ describe("search", () => {
   });
 
   it(`given a partial word, returns the emoji whose name contains that word`, () => {
-    const searchTerm1 = "piz";
-    const searchTerm2 = "za";
+    const searchTerm1 = 'piz';
+    const searchTerm2 = 'za';
     const emoji1 = [
       {
-        symbol: "🍕",
-        name: "pizza",
-        categories: ["food"],
+        symbol: '🍕',
+        name: 'pizza',
+        category: 'food',
       },
     ];
 
-    const searchTerm3 = "burr";
-    const searchTerm4 = "urri";
+    const searchTerm3 = 'burr';
+    const searchTerm4 = 'urri';
     const emoji2 = [
       {
-        symbol: "🌯",
-        name: "burrito",
-        categories: ["food"],
+        symbol: '🌯',
+        name: 'burrito',
+        category: 'food',
       },
     ];
 
-    const searchTerm5 = "thun";
-    const searchTerm6 = "storm";
+    const searchTerm5 = 'thun';
+    const searchTerm6 = 'storm';
     const emoji3 = [
       {
-        symbol: "🌩",
-        name: "thunderstorm",
-        categories: ["weather"],
+        symbol: '🌩',
+        name: 'thunderstorm',
+        category: 'weather',
       },
     ];
 
@@ -76,61 +76,61 @@ describe("search", () => {
   });
 
   it(`can return multiple matches`, () => {
-    const searchTerm1 = "heart";
+    const searchTerm1 = 'heart';
     const emojis1 = [
       {
-        symbol: "💜",
-        letter: "h",
-        name: "heart",
-        categories: [],
+        symbol: '💜',
+        letter: 'h',
+        name: 'heart',
+        category: '',
       },
       {
-        symbol: "💔",
-        name: "heartbreak",
-        categories: [],
+        symbol: '💔',
+        name: 'heartbreak',
+        category: '',
       },
     ];
-    const searchTerm2 = "corn";
+    const searchTerm2 = 'corn';
     const emojis2 = [
       {
-        symbol: "🦄",
-        letter: "u",
-        name: "unicorn",
-        categories: ["animal"],
+        symbol: '🦄',
+        letter: 'u',
+        name: 'unicorn',
+        category: 'animals',
       },
       {
-        symbol: "🍿",
-        name: "popcorn",
-        categories: ["food"],
+        symbol: '🍿',
+        name: 'popcorn',
+        category: 'food',
       },
     ];
-    const searchTerm3 = "bo";
+    const searchTerm3 = 'bo';
     const emojis3 = [
       {
-        symbol: "🤖",
-        letter: "r",
-        name: "robot",
-        categories: ["face"],
+        symbol: '🤖',
+        letter: 'r',
+        name: 'robot',
+        category: 'faces',
       },
       {
-        symbol: "🍼",
-        name: "bottle",
-        categories: ["food", "drink"],
+        symbol: '🍼',
+        name: 'bottle',
+        category: 'drinks',
       },
       {
-        symbol: "⛵",
-        name: "boat",
-        categories: ["vehicle"],
+        symbol: '⛵',
+        name: 'boat',
+        category: 'vehicles',
       },
       {
-        symbol: "📖",
-        name: "book",
-        categories: ["entertainment"],
+        symbol: '📖',
+        name: 'book',
+        category: 'entertainment',
       },
       {
-        symbol: "📓",
-        name: "notebook",
-        categories: [],
+        symbol: '📓',
+        name: 'notebook',
+        category: '',
       },
     ];
 
@@ -139,33 +139,33 @@ describe("search", () => {
     expect(search(searchTerm3, emojis)).toEqual(emojis3);
   });
 
-  it("is case-insensitive", () => {
-    const searchTerm1 = "Robot";
-    const searchTerm2 = "pOpCoRn";
-    const searchTerm3 = "HEARTBREAK";
+  it('is case-insensitive', () => {
+    const searchTerm1 = 'Robot';
+    const searchTerm2 = 'pOpCoRn';
+    const searchTerm3 = 'HEARTBREAK';
 
     const emojis1 = [
       {
-        symbol: "🤖",
-        letter: "r",
-        name: "robot",
-        categories: ["face"],
+        symbol: '🤖',
+        letter: 'r',
+        name: 'robot',
+        category: 'faces',
       },
     ];
 
     const emojis2 = [
       {
-        symbol: "🍿",
-        name: "popcorn",
-        categories: ["food"],
+        symbol: '🍿',
+        name: 'popcorn',
+        category: 'food',
       },
     ];
 
     const emojis3 = [
       {
-        symbol: "💔",
-        name: "heartbreak",
-        categories: [],
+        symbol: '💔',
+        name: 'heartbreak',
+        category: '',
       },
     ];
 
