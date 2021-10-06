@@ -7,14 +7,91 @@
     <title>Emagi Project</title>
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
+    <script src="./scripts/encode.js"></script>
     <script src="./scripts/get-random.js"></script>
+    <script src="./scripts/get-category.js"></script>
+    <script src="./scripts/replace.js"></script>
     <script defer src="./scripts/main.js"></script>
   </head>
   <body>
     <header>
       <h1>Emagi Project 🚀</h1>
     </header>
-    <main></main>
+    <main>
+      <article id="encode">
+        <h2>Encode Phrase</h2>
+        <p>
+          Encode a phrase using emojis! Each letter in the phrase should be
+          converted to its emoji-form. Other punctuation should remain the same.
+        </p>
+        <form>
+          <label for="search-text">Text to encode</label>
+          <input type="text" id="encode-text" name="encode" />
+          <button type="submit">Encode!</button>
+        </form>
+        <aside class="result">
+          <h3>Result</h3>
+          <p>No result yet...</p>
+        </aside>
+      </article>
+      <article id="search">
+        <h2>Search for Emoji</h2>
+        <p>
+          Search for an emoji with the relevant text. For example, searching for
+          "heart" would return both the heart emoji (i.e. 💜) and the heartbreak
+          emoji (i.e. 💔).
+        </p>
+        <form>
+          <label for="search-text">Text to search</label>
+          <input type="text" id="search-text" name="search" />
+          <button type="submit">Search!</button>
+        </form>
+        <aside class="result">
+          <h3>Result</h3>
+          <p>No result yet...</p>
+        </aside>
+      </article>
+      <article id="category">
+        <h2>Random Emoji by Category</h2>
+        <p>
+          Retrieve a random emoji from the given category. You must select a
+          category!
+        </p>
+        <label>Category</label>
+        <form>
+          <select id="categories">
+            <option>All</option>
+            <option value="faces">Faces</option>
+            <option value="animals">Animals</option>
+            <option value="food">Food</option>
+            <option value="drinks">Drinks</option>
+            <option value="vehicles">Vehicles</option>
+            <option value="weather">Weather</option>
+            <option value="holidays">Holidays</option>
+            <option value="devices">Devices</option>
+            <option value="entertainment">Entertainment</option>
+          </select>
+          <button type="submit">Randomize!</button>
+        </form>
+        <aside class="result">
+          <h3>Result</h3>
+          <p>No result yet...</p>
+        </aside>
+      </article>
+      <article id="replace">
+        <h2>Replace Text</h2>
+        <p>Replace relevant words with emojis in a block of text.</p>
+        <form>
+          <label for="search-text">Text to replace</label>
+          <textarea type="text" id="replace-text" name="replace"></textarea>
+          <button type="submit">Replace!</button>
+        </form>
+        <aside class="result">
+          <h3>Result</h3>
+          <p>No result yet...</p>
+        </aside>
+      </article>
+    </main>
     <footer>
       <p>
         Created by YOUR-NAME.
