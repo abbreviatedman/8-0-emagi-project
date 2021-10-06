@@ -22,8 +22,9 @@
       <article id="search">
         <h2>Search For Emoji</h2>
         <p>
-          Search for an emoji with the relevant text. ex "heart" should return
-          purple heart and broken heart
+          Search for an emoji with the relevant text. For example, searching for
+          "heart" would return both the heart emoji (i.e. 💜) and the heartbreak
+          emoji (i.e. 💔).
         </p>
         <form name="search_form">
           <label for="search-text">Text to Search</label>
@@ -66,6 +67,10 @@
 
       <article id="random_category">
         <h2>Random Emoji by Category</h2>
+        <p>
+          Retrieve a random emoji from the given category. You must select a
+          category!
+        </p>
         <form>
           <label for="rand_cat_sel">Category</label>
           <select name="rand_cat_sel" id="rand_cat_sel">
@@ -90,14 +95,15 @@
 
       <article id="replace">
         <h2>Replace with Emojis</h2>
+        <p>Replace relevant words with emojis in a block of text.</p>
         <form name="replace_form">
           <label for="replace-text">Text to replace</label>
-          <input
-            type="text"
+          <textarea
             id="replace-text"
             name="replace"
             placeholder="Word or phrase to modify"
-          />
+            rows="3"
+          ></textarea>
           <button type="submit">Replace</button>
         </form>
         <aside class="result">
@@ -107,14 +113,18 @@
       </article>
 
       <article id="encode">
-        <h2>encode with Emojis</h2>
+        <h2>Encode with Emojis</h2>
+        <p>
+          Encode a phrase using emojis! Each letter in the phrase should be
+          converted to its emoji-form. Other punctuation should remain the same.
+        </p>
         <form name="encode_form">
           <label for="encode-text">Text to Encode</label>
           <input
             type="textarea"
             id="encode-text"
             name="encode"
-            placeholder="Word or phrase to modify"
+            placeholder="Word or phrase to encode"
           />
           <button type="submit">Encode</button>
         </form>
