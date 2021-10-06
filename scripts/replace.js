@@ -22,8 +22,8 @@ const replaceText = (text, emojis) => {
 
 // DON'T TOUCH BELOW!
 // If you haven't made the function yet, this check makes sure other tests can still run.
-if (typeof replace === "undefined") {
-  replace = undefined;
+if (typeof replaceText === "undefined") {
+  replaceText = undefined;
 }
 
 // This check makes sure to export the file only if we're running tests in the terminal.
