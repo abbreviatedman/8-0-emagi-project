@@ -7,6 +7,7 @@
     <title>Emagi Project</title>
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
+    <script src="./scripts/search.js"></script>
     <script src="./scripts/get-random.js"></script>
     <script defer src="./scripts/main.js"></script>
   </head>
@@ -14,10 +15,72 @@
     <header>
       <h1>Emagi Project 🚀</h1>
     </header>
-    <main></main>
+    <main>
+      <article id="search">
+        <h2>Search for Emoji</h2>
+        <p>Search for an emoji with the relevant text. For example, search for "that" will return both the heart emoji (i.e.) and the heartbreak emoji (e.e.)</p>
+        <form id="search-form">
+          <label for="searh-text">Text to search</label>
+          <input type="text" id="search" name="search"/>
+          <button type="submit">Search!</button>
+        </form>
+        <aside class="result">
+          <h3>Result</h3>
+            <p>No result yet...</p>
+        </aside>
+      </article>
+
+      <article id="category">
+        <h2>Emojis By Category</h2>
+        <form id="category-form">
+          <select id="post-category" name="category">
+            <option>-- All Categories --</option>
+            <option value="">All</option>
+            <option value="faces">faces</option>
+            <option value="food">food</option>
+            <option value="animals">animals</option>
+            <option value="devices">devices</option>
+            <option value="drinks">drinks</option>
+            <option value="entertainment">entertainment</option>
+            <option value="holidays">holidays</option>
+            <option value="weather">weather</option>
+          </select>
+          <button type="submit">Search!</button>
+        </form>
+        <aside class="result">
+          <h3>Result</h3>
+            <p>Your input</p>
+        </aside>
+      </article>
+
+      <article id="replace">
+        <h2>Emojis By Text</h2>
+        <form id="replace-form">
+          <label for="replace-text">Text to Replace</label>
+          <input type="text" id="replace" name="replace"/>
+          <button type="submit">Replace</button>
+        </form>
+        <aside class="replace">
+          <h3>Replace</h3>
+            <p>Your result</p>
+        </aside>
+      </article>
+
+      <article id="encode">
+        <h2>Encode phrase</h2>
+        <form id="encode-form">
+          <label for="encode-phrase">Phrase to Encode</label>
+          <input type="text" id="encode" name="encode"/>
+          <button type="submit">Replace</button>
+        </form>
+        <aside class="encode">
+          <h3>Encode</h3>
+            <p>Your result</p>
+        </aside>
+    </main>
     <footer>
       <p>
-        Created by YOUR-NAME.
+        Created by Andres Ballares.
         <a href="https://joinpursuit.org">Join Pursuit.</a>
       </p>
     </footer>

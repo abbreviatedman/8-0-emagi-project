@@ -1,5 +1,11 @@
 // Your `search` function should go below:
 
+const search = (term, emojis) => {
+  return emojis.filter((emoji) => emoji.name.includes(term.toLowerCase()))
+}
+
+
+
 // DON'T TOUCH BELOW!
 // If you haven't made the function yet, this check makes sure other tests can still run.
 if (typeof search === "undefined") {
