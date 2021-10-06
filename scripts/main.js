@@ -23,3 +23,16 @@ document.querySelector("#encode form").addEventListener("submit", (event) => {
             document.querySelector("#encode aside").classList.add("success");
         })
 })
+
+document.querySelector("#replace form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    fetch(`https://emagi-server-8-0.herokuapp.com/emojis`)
+    .then((response) => response.json())
+    .then((emojis) => {
+            const term = event.target.replace.value;
+            const result = replace(term, emojis);
+            const resultArea = document.querySelector("#replace aside p");
+            resultArea.textContent = result;
+            document.querySelector("#replace aside").classList.add("success");
+        })
+})
