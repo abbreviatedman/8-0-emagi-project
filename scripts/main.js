@@ -29,6 +29,7 @@ document
           resultArea.textContent = result;
           // 'aside' is selected and added a class 'success'
           document.querySelector("#search aside").classList.add("success");
+          // removes persistent error background color
           document.querySelector("#search aside").classList.remove("error");
         } 
       })
@@ -42,21 +43,25 @@ document
       event.target.reset();
   });
 
+  
+//calling event listener on the randomize button
 document.querySelector("#random form").addEventListener("submit", (event) => {
-  event.preventDefault();
 
+  //stops the default behaviour of form 
+event.preventDefault();
+//storing user input
   const userCategory = event.target.category.value;
-
+//API url for individual category
   let url = `https://emagi-server-8-0.herokuapp.com/categories/${userCategory}`;
-
+   //selection for all categories  API
   if (userCategory === "all") {
     url = `https://emagi-server-8-0.herokuapp.com/emojis`;
   }
 
-  fetch(url)
-    .then((response) => response.json())
+  fetch(url) // request data from API url
+    .then((response) => response.json()) // if data received, it converted to json data
     .then((emojis) => {
-      emojiSymbols = emojis.map((emoji) => emoji.symbol);
+      const emojiSymbols = emojis.map((emoji) => emoji.symbol);
       const result = getRandom(emojiSymbols);
 
       const resultArea = document.querySelector("#random aside p");
@@ -66,50 +71,3 @@ document.querySelector("#random form").addEventListener("submit", (event) => {
     })
     .catch(console.log);
 });
-
-document.querySelector("#replace form").addEventListener("submit", (event) => {
-  event.preventDefault();
-  const userText = event.target.replace.value;
-
-  fetch("https://emagi-server-8-0.herokuapp.com/emojis")
-    .then((response) => response.json())
-    .then((emojis) => {
-      const toReplace = replace(
-        userText,
-        emojis);
-      // console.log(toReplace, userText);
-      document.querySelector("#replace aside p").textContent = toReplace;
-        const textArea = document.querySelector("#replace aside");
-        textArea.classList.add("success");
-        textArea.classList.remove("error");
-
-        event.target.reset();
-      })
-    .catch((error) => {
-    document.querySelector("#replace aside p").textContent = error;
-    const textArea = document.querySelector("#replace aside");
-    textArea.classList.add("error");
-  });
-});
-
-
-document.querySelector('#encode form').addEventListener('submit', (event) => {
-    event.preventDefault();
-    const userInput = event.target.encode.value;
-  
-    fetch("https://emagi-server-8-0.herokuapp.com/emojis")
-      .then((response) => response.json())
-      .then((emojis) => {
-        document.querySelector('#encode aside p').textContent = encode(userInput, emojis);
-        const textArea = document.querySelector("#encode aside");
-        textArea.classList.add("success");
-        textArea.classList.remove("error");
-  
-        event.target.reset();
-      })
-      .catch((error) => {
-        document.querySelector("#encode aside p").textContent = error;
-        const textArea = document.querySelector("#encode aside");
-        textArea.classList.add("error");
-      })
-  })
