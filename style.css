@@ -120,7 +120,7 @@ main aside p {
 /* Footer */
 footer {
   background: var(--color-dark);
-  color: white;
+  color: rgb(203, 96, 189);
   margin-top: 50px;
   padding: 25px;
   text-align: center;
