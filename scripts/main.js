@@ -67,7 +67,9 @@ document
 //Replace
 document.querySelector("#replace form").addEventListener("submit", (event) => {
   event.preventDefault();
-  const text = event.target.replace.value;
+  let text = event.target.replace.value;
+  console.log(text);
+  const startingText = text;
   if (!text) {
     document.querySelector("#replace aside p").textContent =
       "Error: no text entered";
@@ -77,31 +79,14 @@ document.querySelector("#replace form").addEventListener("submit", (event) => {
     fetch(`https://emagi-server-8-0.herokuapp.com/emojis`)
       .then((response) =>
         response.json().then((emojis) => {
-          const result = [];
-          const words = text.split(" ");
-          words.forEach((word) => {
-            //accounting for punctuation at the end of a word
-            const punctuation = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
-            let storedPunc = "";
-            word = word
-              .split("")
-              .filter((letter) => {
-                if (punctuation.includes(letter)) {
-                  storedPunc = letter;
-                  return false;
-                } else {
-                  return true;
-                }
-              })
-              .join("");
-            //still need to account for suffixes probably need a word search directory, but sounds kind of inefficient
-            document.querySelector("#search aside").classList.remove("success");
-            result.push(replace(word, emojis) + storedPunc);
+          emojis.forEach((emoji) => {
+            text = text.toLowerCase().replace(emoji.name, emoji.symbol);
           });
+          document.querySelector("#search aside").classList.remove("success");
 
           const resultArea = document.querySelector("#replace aside p");
-          resultArea.textContent = result.join(" ");
-          if (resultArea.textContent === text) {
+          resultArea.textContent = text;
+          if (text === startingText) {
             resultArea.textContent += `\n\n**No text was moddified**`;
           }
           document.querySelector("#replace aside").classList.add("success");
