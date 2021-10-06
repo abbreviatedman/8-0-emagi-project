@@ -4,7 +4,7 @@ Emojis + magic = Emagi! ⭐️
 
 In this project, you'll build an interactive application that will make use of all kinds of emojis.
 
-You can see [the deployed solution here](http://https://textemoji.surge.sh//).
+You can see [the deployed solution here](https://textemoji.surge.sh/).
 
 ## Getting started
 
