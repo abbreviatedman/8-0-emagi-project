@@ -16,6 +16,22 @@
       <h1>Emagi Project 🚀</h1>
     </header>
     <main>
+      <article id="encode">
+        <h2>Encode Phrase</h2>
+        <p>
+          Encode a phrase using emojis! Each letter in the phrase should be
+          converted to its emoji-form. Other punctuation should remain the same.
+        </p>
+        <form>
+          <label for="encode-text">Text to encode</label>
+          <input type="text" id="encode-text" name="encode" type="text">
+          <button type="submit">Encode!</button>
+        </form>
+        <aside class="encode-result">
+          <h3>Result</h3>
+          <p>No result yet...</p>
+        </aside>
+      </article>
       <article id="search">
         <h2>Search For Emoji</h2>
         <p>Search for an emoji with the relevant text. For example, searching for "heart" would return both the heart emoji (i.e. 💜) and the heartbreak emoji (i.e. 💔).</p>
@@ -57,7 +73,7 @@
         <p>Replace relevant words with emojis in a block of text.</p>
         <form>
           <label for="replace-text">Text to search</label>
-          <input type="text" id="replace-text" name="replace" style="height:140px; width:200px"/>
+          <input type="text" id="replace-text" name="replace" style="height:100px; width:220px"/>
           <button type="submit">Replace!</button>
         </form>
         <aside class="replace-result">
