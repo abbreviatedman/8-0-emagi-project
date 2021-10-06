@@ -71,3 +71,29 @@ event.preventDefault();
     })
     .catch(console.log);
 });
+
+document.querySelector("#replace form").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const userText = event.target.replace.value;
+
+  fetch("https://emagi-server-8-0.herokuapp.com/emojis")
+    .then((response) => response.json())
+    .then((emojis) => {
+      const toReplace = replace(
+        userText,
+        emojis);
+      // console.log(toReplace, userText);
+      document.querySelector("#replace aside p").textContent = toReplace;
+        const textArea = document.querySelector("#replace aside");
+        textArea.classList.add("success");
+        textArea.classList.remove("error");
+
+        event.target.reset();
+      })
+    .catch((error) => {
+    document.querySelector("#replace aside p").textContent = error;
+    const textArea = document.querySelector("#replace aside");
+    textArea.classList.add("error");
+  });
+});
+
