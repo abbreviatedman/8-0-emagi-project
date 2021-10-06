@@ -8,12 +8,14 @@ document.querySelector("#search form").addEventListener("submit", (event) => {
         const resultArea = document.querySelector("#search aside p");
         resultArea.textContent = `${term} is not found`;
         document.querySelector("#search aside").classList.add("error");
+        event.target.reset();
       } else {
         const result = emojis.map((emoji) => emoji.symbol).join("");
         const resultArea = document.querySelector("#search aside p");
         resultArea.textContent = result;
         document.querySelector("#search aside").classList.remove("error");
         document.querySelector("#search aside").classList.add("success");
+        event.target.reset();
       }
     })
     .catch(() => {
@@ -33,6 +35,7 @@ document.querySelector("#encode form").addEventListener("submit", (event) => {
       const resultArea = document.querySelector("#encode aside p");
       resultArea.textContent = result;
       document.querySelector("#encode aside").classList.add("success");
+      event.target.reset();
     });
 });
 
