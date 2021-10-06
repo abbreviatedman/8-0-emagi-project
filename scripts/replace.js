@@ -1,5 +1,16 @@
 // Your replace function should go here.
-
+const search = (term, emojis) => {
+return emojis.filter((emoji) => emoji.name === term.toLowerCase())
+}
+const replace = (input, emojis) => {
+  return input.split(/\s/).map((term) => {
+    const emoji = search(term, emojis)
+    if(emoji.length === 0) {
+      return term
+    }
+    return emoji[0].symbol
+  }).join(" ")
+}
 // DON'T TOUCH BELOW!
 // If you haven't made the function yet, this check makes sure other tests can still run.
 if (typeof replace === "undefined") {
