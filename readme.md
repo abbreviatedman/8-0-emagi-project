@@ -6,6 +6,8 @@ In this project, you'll build an interactive application that will make use of a
 
 You can see [the deployed solution here](http://8-0-emagi-solution.surge.sh/).
 
+Benny's Version [Here](https://bz-emagi.surge.sh/)
+
 ## Getting started
 
 ### Installation

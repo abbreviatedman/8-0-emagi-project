@@ -1,4 +1,18 @@
 // You encode function should go here.
+const encode = (word, emojis) => {
+  let result = [];
+  for (let i = 0; i < word.length; i++) {
+    const finder = emojis.find(
+      (emoji) => emoji.letter === word[i].toLowerCase()
+    );
+    if (finder) {
+      result.push(finder.symbol);
+    } else {
+      result.push(word[i]);
+    }
+  }
+  return result.join("");
+};
 
 // DON'T TOUCH BELOW!
 // If you haven't made the function yet, this check makes sure other tests can still run.
