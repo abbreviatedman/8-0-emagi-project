@@ -14,11 +14,19 @@ document.querySelector("#search form").addEventListener("submit", (event) => {
         // const term = event.target.search.value;
         const result = emojis.map((emoji) => emoji.symbol).join("\n");
         const resultArea = document.querySelector("#search aside p");
-        resultArea.textContent = result;
-        document.querySelector("#search aside").classList.add("success");
-        //allows the box to change back from error
-        document.querySelector("#search aside").classList.remove("error");
-        document.search_form.reset();
+        if (result.length) {
+          resultArea.textContent = result;
+          document.querySelector("#search aside").classList.add("success");
+          //allows the box to change back from error
+          document.querySelector("#search aside").classList.remove("error");
+          document.search_form.reset();
+        } else {
+          resultArea.textContent = `${term} can not be found`;
+          document.querySelector("#search aside").classList.add("error");
+          //allows the box to change back from error
+          document.querySelector("#search aside").classList.remove("success");
+          document.search_form.reset();
+        }
       })
     )
     .catch(console.log);
