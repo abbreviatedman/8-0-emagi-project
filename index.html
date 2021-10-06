@@ -17,22 +17,45 @@
     </header>
     <main>
       <article id="search">
-        <h2>search For Emoji</h2>
+        <h2>Search For Emoji</h2>
         <p>Search for an emoji with the relevant text. For example, searching for "heart" would return both the heart emoji (i.e. 💜) and the heartbreak emoji (i.e. 💔).</p>
         <form>
           <label for="search-text">Text to search</label>
           <input type="text" id="search-text" name="search"/>
           <button type="submit">Search!</button>
         </form>
-        <aside class="result">
+        <aside class="search-result">
           <h3>Result</h3>
           <p>No result yet...</p>
         </aside> 
       </article>
+      <article id="random">
+        <h2>Random Emoji by Category</h2>
+        <p>Retrieve a random emoji from the given category. You must select a category!</p>
+        <form>
+          <label for="random-category">Category</label>
+          <select name="category" id="category-select">
+            <option value="All">All</option>
+            <option value="Faces">Faces</option>
+            <option value="Animals">Animals</option>
+            <option value="Food">Food</option>
+            <option value="Drinks">Drinks</option>
+            <option value="Vehicles">Vehicles</option>
+            <option value="Holidays">Holidays</option>
+            <option value="Weather">Weather</option>
+            <option value="Entertainment">Entertainment</option>
+        </select>
+        <button type="submit">Randomized!</button>
+        </form>
+        <aside class="random-result">
+          <h3>Result</h3>
+          <p>No result yet...</p>
+        </aside>
+      </article>
     </main>
     <footer>
       <p>
-        Created by YOUR-NAME.
+        Created by -- Your Name -- here.
         <a href="https://joinpursuit.org">Join Pursuit.</a>
       </p>
     </footer>
