@@ -1,5 +1,16 @@
 // Your replace function should go here.
+const replace = (phrase, emojis) => {
+  const message = [] //created a new arr
 
+  phrase.split(" ").forEach((word) => {
+  const match = emojis.find((emoji) => emoji.name === word.toLowerCase());
+    if (!match) { //if letters dont match the emoji
+      return message.push(word);
+    }
+    return message.push(match.symbol);
+  }); //if letters match, push emoji
+  return message.join(" "); //removes comma between emojis
+};
 // DON'T TOUCH BELOW!
 // If you haven't made the function yet, this check makes sure other tests can still run.
 if (typeof replace === "undefined") {
