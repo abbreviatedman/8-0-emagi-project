@@ -2,7 +2,7 @@
 const getCategory = (category, emojis) => {
   return emojis.filter((emoji) => {
     if (emoji.category === category) {
-      return emoji.symbol
+      return emoji
     }
   })
 }

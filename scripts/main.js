@@ -1,5 +1,3 @@
-
-
 document.querySelector("#search form").addEventListener("submit", (event) => {
   event.preventDefault();
   const term = event.target.search.value;
@@ -33,14 +31,17 @@ document.querySelector("#search form").addEventListener("submit", (event) => {
 
 document.querySelector("#random form").addEventListener("submit", (event) => {
   event.preventDefault();
-
   const term = event.target.category.value;
-  fetch(`https://emagi-server-8-0.herokuapp.com/categories/${term}`)
+  let BASE_URL = `https://emagi-server-8-0.herokuapp.com/categories/${term}`;
+  if (term === "all") {
+    BASE_URL = "https://emagi-server-8-0.herokuapp.com/emojis";
+  }
+  fetch(BASE_URL)
     .then((response) => response.json())
     .then((categories) => {
-      const result = categories.map((category) => category.symbol).join("");
+      const result = categories.map((category) => category.symbol);
       const resultArea = document.querySelector("#random aside p");
-      resultArea.textContent = result;
+      resultArea.textContent = getRandom(result);
 
       document.querySelector("#random aside").classList.remove("error");
       document.querySelector("#random aside").classList.add("success");
@@ -49,6 +50,78 @@ document.querySelector("#random form").addEventListener("submit", (event) => {
       const resultArea = document.querySelector("#random aside p");
       resultArea.textContent = "Category not found";
       document.querySelector("#random aside").classList.add("error");
-      //console.log(createErrorMessage(error))
     });
-});
+  });
+
+  document.querySelector("#replace form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      
+      const term = event.target.replace.value;
+      fetch("https://emagi-server-8-0.herokuapp.com/emojis")
+        .then((response) => response.json())
+        .then((emojis) => {
+          if (term.length === 0) {
+            const resultArea = document.querySelector("#replace aside p");
+            resultArea.textContent = "Enter a phrase";
+            document.querySelector("#replace aside").classList.add("error");
+            document.querySelector("#replace aside").classList.remove("success");
+            
+          } else { 
+            const resultArea = document.querySelector("#replace aside p");
+            resultArea.textContent = replace(term, emojis);
+            document.querySelector("#replace aside").classList.remove("error");
+            document.querySelector("#replace aside").classList.add("success");
+            
+          }
+        })
+        // .catch(() => {
+        //   const resultArea = document.querySelector("#replace aside p");
+        //   resultArea.textContent = "Enter a phrase";
+        //   document.querySelector("#replace aside").classList.add("error");
+        //   console.log("this is working")
+        // });
+        event.target.reset();
+    });
+          
+        
+
+    // - [ ] After submitting, if the text area is empty, include an error message in the `.result` element.
+
+    // - [ ] After submitting, if the text area is empty, add a class of `.error` to the `.result` element.
+    
+    // - [ ] After submitting, if the replacement caused nothing to be replaced, include an error message in the `.result` element.
+    
+    // - [ ] After submitting, if the replacement caused nothing to be replaced, add a class of `.error` to the `.result` element.
+    
+    // - [ ] When replacing, replace words that have punctuation directly next to them. For example, "rain," should be translated to "🌧,".
+    
+    // - [ ] When replacing, replace partial words with emojis. For example, "raining" should be translated to "🌧ing".
+    document.querySelector("#encode form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      
+      const term = event.target.encode.value;
+      fetch("https://emagi-server-8-0.herokuapp.com/emojis")
+        .then((response) => response.json())
+        .then((emojis) => {
+          const resultArea = document.querySelector("#encode aside p");
+
+          if(term.length === 0) {
+
+            resultArea.textContent = "No spaces";
+            document.querySelector("#encode aside").classList.add("error");
+            document.querySelector("#encode aside").classList.remove("success");
+          } else {
+            resultArea.textContent = encode(term, emojis)
+            document.querySelector("#encode aside").classList.remove("error");
+            document.querySelector("#encode aside").classList.add("success");
+          }
+
+        })
+        .catch(() => {
+          const resultArea = document.querySelector("#encode aside p");
+          resultArea.textContent = "Enter a phrase";
+          document.querySelector("#replace aside").classList.add("error");
+          //console.log("this is working")
+        });
+        event.target.reset();
+      });
