@@ -72,6 +72,7 @@ event.preventDefault();
     .catch(console.log);
 });
 
+//replace feature
 document.querySelector("#replace form").addEventListener("submit", (event) => {
   event.preventDefault();
   const userText = event.target.replace.value;
@@ -97,3 +98,24 @@ document.querySelector("#replace form").addEventListener("submit", (event) => {
   });
 });
 
+//Encode feature
+document.querySelector('#encode form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const userInput = event.target.encode.value;
+  
+    fetch("https://emagi-server-8-0.herokuapp.com/emojis")
+      .then((response) => response.json())
+      .then((emojis) => {
+        document.querySelector('#encode aside p').textContent = encode(userInput, emojis);
+        const textArea = document.querySelector("#encode aside");
+        textArea.classList.add("success");
+        textArea.classList.remove("error");
+  
+        event.target.reset();
+      })
+      .catch((error) => {
+        document.querySelector("#encode aside p").textContent = error;
+        const textArea = document.querySelector("#encode aside");
+        textArea.classList.add("error");
+      })
+  })
