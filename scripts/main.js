@@ -17,11 +17,6 @@ document.querySelector("#search form").addEventListener("submit", (event) => {
         document.querySelector("#search aside").classList.add("success");
         event.target.reset();
       }
-    })
-    .catch(() => {
-      document.querySelector("#search aside").classList.add("error");
-      const resultArea = document.querySelector("#search aside p");
-      resultArea.textContent = "Enter a valid input...";
     });
 });
 
@@ -31,11 +26,18 @@ document.querySelector("#encode form").addEventListener("submit", (event) => {
   fetch(`https://emagi-server-8-0.herokuapp.com/emojis`)
     .then((response) => response.json())
     .then((emojis) => {
-      const result = encode(term, emojis);
-      const resultArea = document.querySelector("#encode aside p");
-      resultArea.textContent = result;
-      document.querySelector("#encode aside").classList.add("success");
-      event.target.reset();
+      if (!term.length) {
+        const resultArea = document.querySelector("#encode aside p");
+        resultArea.textContent = "Please enter a value to replace.";
+        document.querySelector("#encode aside").classList.add("error");
+      } else {
+        const result = encode(term, emojis);
+        const resultArea = document.querySelector("#encode aside p");
+        resultArea.textContent = result;
+        document.querySelector("#encode aside").classList.remove("error");
+        document.querySelector("#encode aside").classList.add("success");
+        event.target.reset();
+      }
     });
 });
 
@@ -49,24 +51,18 @@ document.querySelector("#category form").addEventListener("submit", (event) => {
         fetch(`https://emagi-server-8-0.herokuapp.com/emojis`)
           .then((response) => response.json())
           .then((emojis) => {
-            const result = emojis.map((emoji) => emoji.symbol).join("");
+            const result = emojis.map((emoji) => emoji.symbol);
             const resultArea = document.querySelector("#category aside p");
-            resultArea.textContent = result;
+            resultArea.textContent = getRandom(result);
             document.querySelector("#category aside").classList.add("success");
           });
       } else {
-        const result = emojis.map((emoji) => emoji.symbol).join("");
+        const result = emojis.map((emoji) => emoji.symbol);
         const resultArea = document.querySelector("#category aside p");
-        resultArea.textContent = result;
+        resultArea.textContent = getRandom(result);
         document.querySelector("#category aside").classList.add("success");
       }
-    })
-    .catch(() => {
-      document.querySelector("#category aside").classList.add("error");
-      const resultArea = document.querySelector("#category aside p");
-      resultArea.textContent = "Enter a valid input...";
     });
-  target.event.reset;
 });
 
 document.querySelector("#replace form").addEventListener("submit", (event) => {
@@ -76,8 +72,16 @@ document.querySelector("#replace form").addEventListener("submit", (event) => {
     .then((response) => response.json())
     .then((emojis) => {
       const result = replace(term, emojis);
-      const resultArea = document.querySelector("#replace aside p");
-      resultArea.textContent = result;
-      document.querySelector("#replace aside").classList.add("success");
+      if (!term.length) {
+        const resultArea = document.querySelector("#replace aside p");
+        resultArea.textContent = "Please enter a value to replace.";
+        document.querySelector("#replace aside").classList.add("error");
+      } else {
+        const resultArea = document.querySelector("#replace aside p");
+        resultArea.textContent = result;
+        document.querySelector("#replace aside").classList.remove("error");
+        document.querySelector("#replace aside").classList.add("success");
+      }
     });
+  event.target.reset();
 });
