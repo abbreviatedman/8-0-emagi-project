@@ -84,6 +84,15 @@ document.querySelector("#replace form").addEventListener("submit", (event) => {
           });
           document.querySelector("#search aside").classList.remove("success");
 
+          //recapitalise letters that were lowercased and not turned into an emoji
+          let wordsArray = startingText.split(" ");
+          text = text.split(" ");
+          for (let i = 0; i < wordsArray.length; i++) {
+            if (wordsArray[i].toLowerCase() === text[i]) {
+              text[i] = wordsArray[i];
+            }
+          }
+          text = text.join(" ");
           const resultArea = document.querySelector("#replace aside p");
           resultArea.textContent = text;
           if (text === startingText) {
@@ -99,18 +108,6 @@ document.querySelector("#replace form").addEventListener("submit", (event) => {
 });
 
 //Encode
-
-// fetch(`https://emagi-server-8-0.herokuapp.com/emojis`)
-//   .then((response) => {
-//     response.json().then((emojis) => {
-//   const emojiList = emojis.filter((emoji) =>
-// "qwertyuiopasdfghjklzxcvbnm".includes(emoji.letter)
-//       );
-//       console.log(emojiList);
-//     });
-//   })
-//   .catch(console.log);
-//
 document.querySelector("#encode form").addEventListener("submit", (event) => {
   event.preventDefault();
   const text = event.target.encode.value;
