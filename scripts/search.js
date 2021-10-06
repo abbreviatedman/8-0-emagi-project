@@ -2,6 +2,8 @@
 const search = (term, emojis) => {
   return emojis.filter((emoji) => emoji.name.includes(term.toLowerCase()));
 };
+//Filter thru array and if an emoji is included in term, which is user input, return that emoji
+
 
 // DON'T TOUCH BELOW!
 // If you haven't made the function yet, this check makes sure other tests can still run.
