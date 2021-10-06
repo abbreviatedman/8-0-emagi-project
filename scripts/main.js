@@ -63,7 +63,7 @@ document.querySelector("#random-form")
         const category = event.target.category.value;
         const resultArea = document.querySelector("#random-result");
 
-        if (category === "all") {
+        if (category === "-----Select a Category-----") {
             resultArea.textContent = "Please select a specific category"
             event.target.parentNode.querySelector(".result").classList.add('error');
         } else {
@@ -75,13 +75,20 @@ document.querySelector("#random-form")
         .then((response) => response.json())
         .then((emojis) => { 
                 // const result = getRandom(emojis.map((emojis) => emojis.symbol));
-                const result = getRandom(getCategory(category, emojis).map((emoji) => emoji.symbol));
+                if (category === "all") {
+                    const result = getRandom(emojis.map((emoji) => emoji.symbol));
+
+                    resultArea.textContent = result;
+                    event.target.parentNode.querySelector(".result").classList.add('success');
+                } else {
+                    const result = getRandom(getCategory(category, emojis).map((emoji) => emoji.symbol));
+
+                    resultArea.textContent = result;
+                    event.target.parentNode.querySelector(".result").classList.add('success');
+                }
 
                 //check result
                 // console.log(result)
-            
-                resultArea.textContent = result;
-                event.target.parentNode.querySelector(".result").classList.add('success');
             })
             .catch();
         }
