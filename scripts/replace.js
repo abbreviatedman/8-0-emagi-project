@@ -1,4 +1,18 @@
 // Your replace function should go here.
+const replace = (text, emojis) => {
+  return text
+    .split(" ")
+    .map((word) => {
+      return emojis.reduce(
+        (acc, val) =>
+          acc.toLowerCase().includes(val.name)
+            ? acc.toLowerCase().replaceAll(val.name, val.symbol)
+            : acc,
+        word
+      );
+    })
+    .join(" ");
+};
 
 // DON'T TOUCH BELOW!
 // If you haven't made the function yet, this check makes sure other tests can still run.

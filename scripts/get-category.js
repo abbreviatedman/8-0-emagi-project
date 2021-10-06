@@ -1,4 +1,6 @@
 // Your `getCategory` function should go here.
+const getCategory = (cat, emojis) =>
+  emojis.filter((emoji) => emoji.category === cat);
 
 // DON'T TOUCH BELOW!
 // If you haven't made the function yet, this check makes sure other tests can still run.
