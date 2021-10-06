@@ -74,12 +74,12 @@ document.querySelector("#random form").addEventListener("submit", (event) => {
             
           }
         })
-        // .catch(() => {
-        //   const resultArea = document.querySelector("#replace aside p");
-        //   resultArea.textContent = "Enter a phrase";
-        //   document.querySelector("#replace aside").classList.add("error");
-        //   console.log("this is working")
-        // });
+        .catch(() => {
+          const resultArea = document.querySelector("#replace aside p");
+          resultArea.textContent = "Network Error";
+          document.querySelector("#replace aside").classList.add("error");
+        
+        });
         event.target.reset();
     });
           
@@ -107,7 +107,7 @@ document.querySelector("#random form").addEventListener("submit", (event) => {
 
           if(term.length === 0) {
 
-            resultArea.textContent = "No spaces";
+            resultArea.textContent = "Add some text";
             document.querySelector("#encode aside").classList.add("error");
             document.querySelector("#encode aside").classList.remove("success");
           } else {
@@ -119,7 +119,7 @@ document.querySelector("#random form").addEventListener("submit", (event) => {
         })
         .catch(() => {
           const resultArea = document.querySelector("#encode aside p");
-          resultArea.textContent = "Enter a phrase";
+          resultArea.textContent = "Server error";
           document.querySelector("#replace aside").classList.add("error");
           //console.log("this is working")
         });
