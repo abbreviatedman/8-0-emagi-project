@@ -13,5 +13,8 @@
   "license": "ISC",
   "devDependencies": {
     "live-server": "^1.2.1"
+  },
+  "dependencies": {
+    "cypress": "^8.5.0"
   }
 }
