@@ -1,5 +1,10 @@
 // Your `getCategory` function should go here.
 
+const getCategory = (category, emojis) => {
+  //use filter method
+  return emojis.filter((emoji) => emoji.category === category.toLowerCase())
+}
+
 // DON'T TOUCH BELOW!
 // If you haven't made the function yet, this check makes sure other tests can still run.
 if (typeof getCategory === "undefined") {
