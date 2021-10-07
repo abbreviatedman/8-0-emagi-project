@@ -1,4 +1,18 @@
 // Your replace function should go here.
+const replace = (word, emojis) => {
+  let result = [];
+    const match = emojis.find((emoji) => emoji.name.toLowerCase() === word.toLowerCase());
+    console.log(match)
+    if (match){
+      result.push(match.symbol)
+    } else {
+      result.push(word);
+    }
+  
+  
+  return result.join("");
+}
+
 
 // DON'T TOUCH BELOW!
 // If you haven't made the function yet, this check makes sure other tests can still run.
