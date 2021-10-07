@@ -1,4 +1,11 @@
 // Your replace function should go here.
+const replace = (inputWord, emojis) => {
+const foundEmoji = emojis.find((foundEmoji) => foundEmoji.name === inputWord.toLowerCase());
+if(!foundEmoji) {
+return inputWord;
+  }
+return foundEmoji.symbol;
+}
 
 // DON'T TOUCH BELOW!
 // If you haven't made the function yet, this check makes sure other tests can still run.
