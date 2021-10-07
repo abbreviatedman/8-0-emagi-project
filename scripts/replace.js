@@ -1,5 +1,15 @@
 // Your replace function should go here.
 
+const replace = (word, db) => {
+
+
+const test = db.find((emoji) => word.toLowerCase() === emoji.name)
+
+return test ? test.symbol : word
+
+}
+
+
 // DON'T TOUCH BELOW!
 // If you haven't made the function yet, this check makes sure other tests can still run.
 if (typeof replace === "undefined") {

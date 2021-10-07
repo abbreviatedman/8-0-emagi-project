@@ -1,5 +1,13 @@
 // Your `getCategory` function should go here.
 
+const getCategory = (input, db) => {
+  return db.filter((each) => each.category === input)
+} 
+
+
+
+
+
 // DON'T TOUCH BELOW!
 // If you haven't made the function yet, this check makes sure other tests can still run.
 if (typeof getCategory === "undefined") {
