@@ -1,5 +1,20 @@
 // You encode function should go here.
+const encode = (string, emojis) => {
+  const letterToEmoji = []
 
+  string
+  .split("")
+  .forEach((character) => {
+    const match = emojis.find((emoji) => emoji.letter === character.toLowerCase());
+    if (!match) {
+      return letterToEmoji.push(character);
+    }
+
+    return letterToEmoji.push(match.symbol);
+  });
+    
+  return letterToEmoji.join("");
+};
 // DON'T TOUCH BELOW!
 // If you haven't made the function yet, this check makes sure other tests can still run.
 if (typeof encode === "undefined") {

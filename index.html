@@ -7,6 +7,10 @@
     <title>Emagi Project</title>
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
+    <script src="./scripts/get-category.js"></script>
+    <script src="./scripts/replace.js"></script>
+    <script src="./scripts/encode.js"></script>
+    <script src="./scripts/search.js"></script>
     <script src="./scripts/get-random.js"></script>
     <script defer src="./scripts/main.js"></script>
   </head>
@@ -14,10 +18,74 @@
     <header>
       <h1>Emagi Project 🚀</h1>
     </header>
-    <main></main>
+    <main>
+      <article id="encode">
+        <h2>Encode Phrase</h2>
+        <p>Encode a phrase using emojis! Each letter in the phrase should be converted to its emoji-form. Other punctuation should remain the same.</p>
+        <form>
+          <label for='search-text'>Text to encode</label>
+          <input type="text" id='search-text' name='search' /> <!--event.target.search-->
+          <button type='submit'>Encode</button>
+        </form>
+        <aside class='result'>
+          <h3>Result...</h3>
+          <p>No result yet 😢 </p>
+        </aside>
+      </article>
+      <article id="search">
+        <h2>Search For Emoji</h2>
+        <p>Search for an emoji with the relevant text. For example, searching for "heart" would return both the heart emoji (i.e. 💜) and the heartbreak emoji (i.e. 💔).</p>
+        <form>
+          <label for="search-text">Text to search</label>
+          <input type="text" id="search-text" name="search" />
+          <button type="submit">Search!</button>
+        </form>
+        <aside class="result">
+          <h3>Result</h3>
+          <p>No result yet...</p>
+        </aside>
+      </article>
+      <article id="random">
+        <h2>Random Emoji by Category</h2>
+        <p>Retrieve a random emoji from the given category. You must select a category!</p>
+        <form>
+          <label for="random"></label>
+          <select id="emoji-category" name="category">
+            <option value="All" checked>All</option>
+            <option value="animals">Animals</option>
+            <option value="devices">Devices</option>
+            <option value="drinks">Drinks</option>
+            <option value="entertainment">Entertainment</option>
+            <option value="faces">Faces</option>
+            <option value="food">Food</option>
+            <option value="holidays">Holidays</option>
+            <option value="vehicles">Vehicles</option>
+            <option value="weather">Weather</option>
+          </select>
+          <button type='submit'>Randomize!</button>
+        </form>
+        <aside class='random-result'>
+          <h3>Result...</h3>
+          <p>No result yet! </p>
+        </aside>
+      </article>
+      <article id ='replace'>
+        <h2>Replace Text</h2>
+        <p>Replace relevant words with emojis in a block of text.</p>
+        <form>
+          <label for='replace-text'>Text to replace</label>
+          <textarea id='replace-text' name='replace' rows='5' cols='25'> </textarea>
+          <button type='submit'>Replace!</button>
+        </form>
+        <aside class='result'>
+          <h3>Result...</h3>
+          <p>No result yet 😢 </p>
+        </aside>
+      </article>
+    </main>
     <footer>
       <p>
-        Created by YOUR-NAME.
+        Created by Stephanie Lucano and Melissa Lopez.
         <a href="https://joinpursuit.org">Join Pursuit.</a>
       </p>
     </footer>
