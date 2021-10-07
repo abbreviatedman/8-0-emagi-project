@@ -1,5 +1,25 @@
 // You encode function should go here.
+const encode = (term, emojis) => {
+  const termSplit = term.toLowerCase().split("");
+  const arr = [];
 
+  let i = 0;
+  let check = 0;
+
+  termSplit.forEach((ltr) => {
+    for (const emoji of emojis) {
+      if (ltr === emoji.letter) {
+        arr[i] = emoji.symbol;
+        check = 1;
+      } else if (ltr !== emoji.letter && check === 0) {
+        arr[i] = ltr;
+      }
+    }
+    check = 0;
+    i += 1;
+  });
+  return arr.join("");
+};
 // DON'T TOUCH BELOW!
 // If you haven't made the function yet, this check makes sure other tests can still run.
 if (typeof encode === "undefined") {

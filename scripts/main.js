@@ -1,3 +1,30 @@
+document.querySelector("#encode form").addEventListener("submit", (event) => {
+    event.preventDefault();
+    const term = event.target.encode.value;
+    fetch(`https://emagi-server-8-0.herokuapp.com/emojis`)
+      .then((response) => response.json())
+      .then((emojis) => {
+        if (!term.length) {
+          throw new Error(`Not found!`);
+        }
+        const result = encode(term, emojis);
+        const resultArea = document.querySelector("#encode aside p");
+        resultArea.textContent = result;
+        console.log(result);
+  
+        document.querySelector("#encode aside").classList.remove("error");
+        document.querySelector("#encode aside").classList.add("success");
+      })
+      .catch((error) => {
+        const resultArea = document.querySelector("#encode aside p");
+        resultArea.textContent = error;
+        document.querySelector("#encode aside").classList.remove("success");
+        document.querySelector("#encode aside").classList.add("error");
+      });
+    event.target.reset();
+  });
+
+
 document.querySelector("#search form")
 .addEventListener('submit', (event) => {
     event.preventDefault();
@@ -27,6 +54,7 @@ document.querySelector("#search form")
     });
     event.target.reset();
 });
+
 
 document.querySelector("#random form").addEventListener('submit', (event) => {
     event.preventDefault();

@@ -7,6 +7,7 @@
     <title>Emagi Project</title>
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
+    <script src="./scripts/encode.js"></script>
     <script src="./scripts/search.js"></script>
     <script src="./scripts/get-random.js"></script>
     <script defer src="./scripts/main.js"></script>
@@ -24,7 +25,7 @@
         </p>
         <form>
           <label for="encode-text">Text to encode</label>
-          <input type="text" id="encode-text" name="encode" type="text">
+          <input type="text" id="encode-text" name="encode" type="text"/>
           <button type="submit">Encode!</button>
         </form>
         <aside class="encode-result">
@@ -74,7 +75,7 @@
         <form>
           <label for="replace-text">Text to search</label>
           <!-- <input type="text" id="replace-text" name="replace" style="height:100px; width:220px"/> -->
-          <textarea id="replace-text" name="replace" rows="6"></textarea>
+          <textarea id="replace-text" name="replace" rows="5"></textarea>
           <button type="submit">Replace!</button>
         </form>
         <aside class="replace-result">
