@@ -1,4 +1,18 @@
 // Your replace function should go here.
+const replace = (sentence, emojis) => {
+  return sentence.split(' ').map((word) => {
+    
+   //console.log(word)
+    const arr = emojis.filter((emoji) => emoji.name === word.toLowerCase())
+    if (arr.length === 0) {
+      return word
+    }
+    return arr[0].symbol
+  }).join('')
+  
+}
+
+
 
 // DON'T TOUCH BELOW!
 // If you haven't made the function yet, this check makes sure other tests can still run.
@@ -12,3 +26,5 @@ if (typeof replace === "undefined") {
 if (typeof module !== "undefined") {
   module.exports = replace;
 }
+
+
