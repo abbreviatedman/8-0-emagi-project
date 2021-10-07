@@ -18,7 +18,7 @@
     <main>
       <article id="search">
         <h2>Search for Emoji</h2>
-        <p>Search for an emoji with the relevant text. For example, search for "that" will return both the heart emoji (i.e.) and the heartbreak emoji (e.e.)</p>
+        <p>Search for an emoji with the relevant text. For example, search for "heart" would return both the heart emoji (i.e. 💜) and the heartbreak emoji (i.e.💔)</p>
         <form id="search-form">
           <label for="searh-text">Text to search</label>
           <input type="text" id="search" name="search"/>
@@ -31,10 +31,10 @@
       </article>
 
       <article id="category">
-        <h2>Emojis By Category</h2>
+        <h2>Random Emoji By Category</h2>
+        <p>Retrieve a random emoji from the given category. You mush select a category!</p>
         <form id="category-form">
           <select id="post-category" name="category">
-            <option>-- All Categories --</option>
             <option value="">All</option>
             <option value="faces">faces</option>
             <option value="food">food</option>
@@ -45,7 +45,7 @@
             <option value="holidays">holidays</option>
             <option value="weather">weather</option>
           </select>
-          <button type="submit">Search!</button>
+          <button type="submit">Randomize!</button>
         </form>
         <aside class="result">
           <h3>Result</h3>
@@ -54,7 +54,8 @@
       </article>
 
       <article id="replace">
-        <h2>Emojis By Text</h2>
+        <h2>Replace Text</h2>
+        <p>Replace relevant words with emojis in a block of text.</p>
         <form id="replace-form">
           <label for="replace-text">Text to Replace</label>
           <input type="text" id="replace" name="replace"/>
@@ -68,10 +69,11 @@
 
       <article id="encode">
         <h2>Encode phrase</h2>
+        <p>Encode a phrase using emojis! Each letter in the phrase should be converted to its emoji-form. Other punctuation should remain the same.</p>
         <form id="encode-form">
           <label for="encode-phrase">Phrase to Encode</label>
           <input type="text" id="encode" name="encode"/>
-          <button type="submit">Replace</button>
+          <button type="submit">Encode!</button>
         </form>
         <aside class="encode">
           <h3>Encode</h3>
