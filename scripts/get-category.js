@@ -1,19 +1,15 @@
 // Your `getCategory` function should go here.
 
-const match = (word, emojis) => {
-  return word.map((eachLetter) => {
+const getCategory = (category, emojis) => {
+  return emojis.filter((emoji) => {
     
   
-   
-    const arr = emojis.filter((emoji) => emoji.category === eachLetter)
-    if (arr.length === 0) {
-      return [];
-    }
-   
-    return arr[0].symbol
-  }).join('')
-  
+   if (emoji.category === category) {
+     return emoji
+   }
+  })
 }
+
 
 
 // DON'T TOUCH BELOW!
