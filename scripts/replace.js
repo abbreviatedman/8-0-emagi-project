@@ -2,6 +2,7 @@
 const replace = (sentence, emojis) => {
   return sentence.split(' ').map((word) => {
     
+    
    //console.log(word)
     const arr = emojis.filter((emoji) => emoji.name === word.toLowerCase())
     if (arr.length === 0) {

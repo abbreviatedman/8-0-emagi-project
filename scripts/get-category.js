@@ -1,5 +1,21 @@
 // Your `getCategory` function should go here.
 
+const match = (word, emojis) => {
+  return word.map((eachLetter) => {
+    
+  
+   
+    const arr = emojis.filter((emoji) => emoji.category === eachLetter)
+    if (arr.length === 0) {
+      return [];
+    }
+   
+    return arr[0].symbol
+  }).join('')
+  
+}
+
+
 // DON'T TOUCH BELOW!
 // If you haven't made the function yet, this check makes sure other tests can still run.
 if (typeof getCategory === "undefined") {
