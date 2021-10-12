@@ -20,7 +20,7 @@ document.querySelector("#search form").addEventListener("submit", (event) => {
 
         if (event.target.search.value  === "") {
             const resultArea = document.querySelector("#search aside p")
-            resultArea.textContent = "Cannot be found"
+            resultArea.textContent = `Text Box is Empty`
             document.querySelector("#search aside").classList.add("error")
             document.querySelector("#search aside").classList.remove("success")
         }
@@ -90,7 +90,7 @@ document.querySelector("#replace form").addEventListener("submit", (event) => {
   fetch(emojiURL).then((response) => response.json()).then((emojis) => {
 
 
-  document.querySelector("#replace aside p").textContent = replace(input, emojis);
+  document.querySelector("#replace aside p").textContent = replace2(input, emojis);
   document.querySelector("#replace aside").classList.add("success");
   document.querySelector("#replace aside").classList.remove("error")
   if (document.querySelector("#replace aside").style.background = "var(--color-red)") {
@@ -137,8 +137,6 @@ const arr = [];
       return arr
     }
   } 
-
-console.log(arr)
 return arr
 }
 
