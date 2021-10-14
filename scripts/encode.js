@@ -1,18 +1,21 @@
 // You encode function should go here.
-const encode = (word, emojis) => {
-  return word.split('').map((eachLetter) => {
-    //console.log(eachLetter);
-    
-   //console.log(word)
-    const arr = emojis.filter((emoji) => emoji.letter === eachLetter.toLowerCase())
-    if (arr.length === 0) {
-      return eachLetter
-    }
-   
-    return arr[0].symbol
-  }).join('')
+
   
-}
+  const encode = (word, emojis) => {
+    return word.split('').map((eachLetter) => {
+      //console.log(eachLetter);
+      
+     //console.log(word)
+      const arr = emojis.filter((emoji) => emoji.letter === eachLetter.toLowerCase())
+      if (arr.length === 0) {
+        return eachLetter
+      }
+     
+      return arr[0].symbol
+    }).join('')
+    
+  }
+
 // DON'T TOUCH BELOW!
 // If you haven't made the function yet, this check makes sure other tests can still run.
 if (typeof encode === "undefined") {

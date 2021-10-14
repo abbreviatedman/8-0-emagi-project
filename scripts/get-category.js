@@ -1,6 +1,6 @@
 // Your `getCategory` function should go here.
 
-const getCategory = (category, emojis) => {
+const getCategory  = (category, emojis) => {
   return emojis.filter((emoji) => {
     
   
